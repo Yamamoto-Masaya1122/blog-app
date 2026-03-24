@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+    container_name: blog-app
+    ports:
+      - "3000:3000"
+    volumes:
+      # ソースコードをマウント（ホットリロード対応）
+      - ./:/app
+      # node_modulesを永続化（ホストのnode_modulesと競合しないように）
+      - node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+    stdin_open: true
+    tty: true
+
+volumes:
+  node_modules:
