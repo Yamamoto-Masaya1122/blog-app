@@ -8,10 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 export default function LoginForm() {
-    const [errorMessage, formAction, isPending] = useActionState(
-        authenticate,
-        undefined,
-    );
+    const [errorMessage, formAction] = useActionState(authenticate, undefined);
 
     return (
         <Card className="w-full max-w-md mx-auto">
