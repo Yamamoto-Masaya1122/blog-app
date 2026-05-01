@@ -17,9 +17,10 @@ datasource db {
 
 model User {
   id String @id @default(cuid())
+  googleOauthId String? @unique @map("google_oauth_id")
   name String
   email String @unique
-  password String
+  password String?
   posts Post[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

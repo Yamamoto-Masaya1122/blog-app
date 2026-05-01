@@ -6,6 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { signIn } from "next-auth/react";
+import { FcGoogle } from "react-icons/fc";
 
 export default function LoginForm() {
     const [errorMessage, formAction] = useActionState(authenticate, undefined);
@@ -36,6 +38,14 @@ export default function LoginForm() {
                         </div>
                         <Button type="submit" className="w-full">
                             ログイン
+                        </Button>
+                        <Button
+                            type="button"
+                            className="w-full"
+                            onClick={() => signIn("google")}
+                        >
+                            <FcGoogle className="w-4 h-4 mr-2" />
+                            Googleでログイン
                         </Button>
                         <div className="flex h-8 items-end space-x-1">
                             {errorMessage && (
