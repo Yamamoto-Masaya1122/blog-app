@@ -66,7 +66,7 @@ export default async function ShowPage({ params }: Params) {
                             remarkPlugins={[remarkGfm]}
                             rehypePlugins={[rehypeHighlight]}
                             skipHtml={false}
-                            unwrapDisalowed={true}
+                            unwrapDisallowed={true}
                         >
                             {post.content}
                         </ReactMarkdown>
